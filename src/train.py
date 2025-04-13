@@ -6,7 +6,7 @@ from build_data import build_dataset
 from model import build_network
 from optimizer import build_optimizer
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 def train(config=None):
     with wandb.init(config=config):

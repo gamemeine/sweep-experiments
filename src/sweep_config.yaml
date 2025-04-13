@@ -1,16 +1,19 @@
-program: train.py
-name: sweepdemo
 method: bayes
 metric:
+  name: loss
   goal: minimize
-  name: validation_loss
 parameters:
-  learning_rate:
-    min: 0.0001
-    max: 0.1
   batch_size:
-    values: [16, 32, 64]
-  epochs:
-    values: [5, 10, 15]
+    values: [32, 64, 128]
+  fc_layer_size:
+    values: [64, 128, 256]
+  dropout:
+    min: 0.2
+    max: 0.5
   optimizer:
     values: ["adam", "sgd"]
+  learning_rate:
+    min: 0.0001
+    max: 0.01
+  epochs:
+    value: 5

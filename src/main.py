@@ -1,7 +1,6 @@
 import argparse
 from sweep_run import run_sweep
 from train import train
-import os
 import wandb
 
 

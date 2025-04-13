@@ -32,4 +32,4 @@ Voila! You are ready to go!
 3. Run the app:
      ```bash
     python main.py --sweep_id <username>/<project_name>/<sweep_id>
-        ```
+    ```

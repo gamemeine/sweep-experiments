@@ -15,6 +15,5 @@ parameters:
   learning_rate:
     min: 0.001
     max: 0.01
-    q: 0.001
   epochs:
     value: 5

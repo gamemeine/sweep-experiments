@@ -3,7 +3,7 @@ from sweep_run import run_sweep
 import wandb
 
 # to disable wandb-core
-# wandb.require("legacy-service")
+wandb.require("legacy-service")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

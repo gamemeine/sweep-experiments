@@ -1,19 +1,17 @@
-method: bayes
+method: grid
 metric:
   name: loss
   goal: minimize
 parameters:
   batch_size:
-    values: [32, 64, 128]
+    values: [32]
   fc_layer_size:
     values: [64, 128, 256]
   dropout:
-    min: 0.2
-    max: 0.5
+    values: [0.1]
   optimizer:
     values: ["adam", "sgd"]
   learning_rate:
-    min: 0.001
-    max: 0.01
+    values: [0.001]
   epochs:
     value: 5

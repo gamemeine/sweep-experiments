@@ -13,7 +13,7 @@ def train():
     with wandb.init() as run:
         config = run.config
 
-        # run.define_metric("loss", summary="min")
+        # run.define_metric("loss", summary="mean")
 
         loader = build_dataset(config.batch_size)
         network = build_network(config.fc_layer_size, config.dropout)

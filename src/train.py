@@ -22,7 +22,7 @@ def train():
         for epoch in range(config.epochs):
             # avg_loss = train_epoch(network, loader, optimizer)
             avg_loss = train_fake_epoch(epoch)
-            wandb.log({"loss": avg_loss, "epoch": epoch})
+            wandb.log({"funkcja_straty": avg_loss, "epoch": epoch})
 
             print(f"Epoch {epoch}: loss = {avg_loss}")
 
@@ -43,4 +43,6 @@ def train_epoch(network, loader, optimizer):
     return cumu_loss / len(loader)
 
 def train_fake_epoch(epoch):
-    return epoch
+    import random
+
+    return random.randint(0, 5)

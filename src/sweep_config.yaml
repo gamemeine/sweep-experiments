@@ -1,6 +1,6 @@
 method: grid
 metric:
-  name: loss
+  name: funkcja_straty
   goal: minimize
 parameters:
   batch_size:
@@ -11,6 +11,10 @@ parameters:
     values: [0.1]
   optimizer:
     values: ["adam", "sgd"]
+  fc_layer_size:
+    value: 128
+  dropout:
+    value: 0.3
   learning_rate:
     values: [0.001]
   epochs:

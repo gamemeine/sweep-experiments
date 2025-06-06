@@ -15,16 +15,14 @@ def train():
     with wandb.init() as run:
         config = run.config
 
-        # run.define_metric("funkcja_straty", summary="mean")
 
         loader = build_dataset(config.batch_size)
         network = build_network(config.fc_layer_size, config.dropout)
         optimizer = build_optimizer(network, config.optimizer, config.learning_rate)
 
         for epoch in range(config.epochs):
-            # avg_loss = train_epoch(network, loader, optimizer)
-            avg_loss = train_fake_epoch(epoch)
-            wandb.log({"funkcja_straty": avg_loss, "epoch": epoch})
+            avg_loss = train_epoch(network, loader, optimizer)
+            wandb.log({"loss": avg_loss, "epoch": epoch})
 
             print(f"Epoch {epoch}: loss = {avg_loss}")
 
@@ -44,8 +42,3 @@ def train_epoch(network, loader, optimizer):
         wandb.log({"batch loss": loss.item()})
 
     return cumu_loss / len(loader)
-
-
-def train_fake_epoch(epoch):
-    print(f"Training fake epoch {epoch}...")
-    return random.uniform(0.1, 1.0)

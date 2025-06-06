@@ -1,6 +1,6 @@
 method: grid
 metric:
-  name: funkcja_straty
+  name: loss
   goal: minimize
   summary: minimize
 parameters:

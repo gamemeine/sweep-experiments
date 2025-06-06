@@ -29,15 +29,17 @@ if __name__ == "__main__":
 
     sweep_config = {
         "method": "grid",
-        "metric": {"name": "loss", "goal": "minimize", "summary": "minimize"},
+        "metric": {"name": "loss", "goal": "minimize", "summary": "maximize"},
         "parameters": {
+            "epochs": {"values": [10]},
             "batch_size": {"values": [32]},
             "fc_layer_size": {"values": [64, 128, 256]},
             "dropout": {"values": [0.1]},
-            "optimizer": {"values": ["adam", "sgd"]}
+            "optimizer": {"values": ["adam", "sgd"]},
+            "learning_rate": {"values": [0.01]},
         }
     }
 
-    sweep_id = create_sweep()
-    # sweep_id = create_sweep(sweep_config)
+    # sweep_id = create_sweep()
+    sweep_id = create_sweep(sweep_config)
     run_sweep(sweep_id)

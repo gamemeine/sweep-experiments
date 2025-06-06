@@ -1,5 +1,6 @@
 import torch.optim as optim
 
+
 def build_optimizer(network, optimizer_name, learning_rate):
     if optimizer_name == "sgd":
         return optim.SGD(network.parameters(), lr=learning_rate, momentum=0.9)

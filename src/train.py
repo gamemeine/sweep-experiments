@@ -1,5 +1,3 @@
-import random
-from time import sleep
 import wandb
 import torch.nn.functional as F
 import torch
@@ -14,7 +12,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 def train():
     with wandb.init() as run:
         config = run.config
-
 
         loader = build_dataset(config.batch_size)
         network = build_network(config.fc_layer_size, config.dropout)

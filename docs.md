@@ -17,7 +17,6 @@ These additions give you greater flexibility when defining optimization targets 
 Below is the minimal YAML schema for defining a sweep with the new `metric.summary` modes. You can include these new summary types under the `project`, `method`, and `metric` sections as usual.
 
 ```yaml
-program: train.py
 method: bayes
 
 metric:
@@ -31,3 +30,26 @@ parameters:
     max: 0.1
   batch_size:
     values: [32, 64, 128]
+```
+
+The JSON equivalent of the above YAML configuration would look like this:
+
+```json
+{
+  "method": "bayes",
+  "metric": {
+    "name": "<METRIC_NAME>",
+    "goal": "maximize|minimize",
+    "summary": "last|maximize|minimize"
+  },
+  "parameters": {
+    "learning_rate": {
+      "min": 0.0001,
+      "max": 0.1
+    },
+    "batch_size": {
+      "values": [32, 64, 128]
+    }
+  }
+}
+```

@@ -23,13 +23,10 @@ To get started with the project, follow these steps:
 Voila! You are ready to go!
 
 ## Running a sweep
+
 1. Define parameters you want to measure during training in sweep_config.yaml
 
-2. Load your config:
-    ```bash
-    wandb sweep sweep_config.yaml
-    ```
-3. Run the app:
+2. Run the app:
      ```bash
-    python main.py --sweep_id <username>/<project_name>/<sweep_id>
+    python main.py
     ```

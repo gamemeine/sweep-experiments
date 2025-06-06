@@ -1,6 +1,7 @@
 from torchvision import datasets, transforms
 import torch
 
+
 def build_dataset(batch_size):
     transform = transforms.Compose([
         transforms.ToTensor(),

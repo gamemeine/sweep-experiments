@@ -1,3 +1,4 @@
+import random
 from time import sleep
 import wandb
 import torch.nn.functional as F
@@ -9,11 +10,12 @@ from optimizer import build_optimizer
 
 device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
+
 def train():
     with wandb.init() as run:
         config = run.config
 
-        # run.define_metric("loss", summary="mean")
+        # run.define_metric("funkcja_straty", summary="mean")
 
         loader = build_dataset(config.batch_size)
         network = build_network(config.fc_layer_size, config.dropout)
@@ -25,6 +27,7 @@ def train():
             wandb.log({"funkcja_straty": avg_loss, "epoch": epoch})
 
             print(f"Epoch {epoch}: loss = {avg_loss}")
+
 
 def train_epoch(network, loader, optimizer):
     cumu_loss = 0
@@ -42,7 +45,7 @@ def train_epoch(network, loader, optimizer):
 
     return cumu_loss / len(loader)
 
-def train_fake_epoch(epoch):
-    import random
 
-    return random.randint(0, 5)
+def train_fake_epoch(epoch):
+    print(f"Training fake epoch {epoch}...")
+    return random.uniform(0.1, 1.0)

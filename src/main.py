@@ -1,4 +1,3 @@
-import argparse
 import os
 import wandb
 import yaml
@@ -16,18 +15,15 @@ def create_sweep():
 
     return wandb.sweep(sweep=sweep_config)
 
-def run_sweep(sweep_id, goal):
+
+def run_sweep(sweep_id):
     wandb.agent(
         sweep_id=sweep_id,
         function=train,
         count=5,
-        goal=goal,
     )
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--goal', type=str, required=True, help='WandB sweep goal', choices=['min', 'max', 'mean'])
-    args = parser.parse_args()
 
+if __name__ == "__main__":
     sweep_id = create_sweep()
-    run_sweep(sweep_id, args.goal)
+    run_sweep(sweep_id)

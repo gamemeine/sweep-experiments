@@ -2,13 +2,10 @@ method: grid
 metric:
   name: funkcja_straty
   goal: minimize
+  summary: minimize
 parameters:
   batch_size:
     values: [32]
-  fc_layer_size:
-    values: [64, 128, 256]
-  dropout:
-    values: [0.1]
   optimizer:
     values: ["adam", "sgd"]
   fc_layer_size:
